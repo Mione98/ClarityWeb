@@ -18,22 +18,46 @@
         t.src = "https://www.clarity.ms/tag/" + i;
         y = l.getElementsByTagName(r)[0];
         y.parentNode.insertBefore(t, y);
-      })(window, document, "clarity", "script", "qwqdb3juyn");
+      })(window, document, "clarity", "script", "qwqdb3juyn"); // 👈 Your Clarity project ID
     </script>
+
+    <!-- Read tracking parameters from URL -->
     <script>
       window.onload = function () {
         const params = new URLSearchParams(window.location.search);
         const user = params.get("user");
         const source = params.get("source");
 
+        // Log for debugging (optional)
+        console.log("Clarity user:", user);
+        console.log("Clarity source:", source);
+
+        // Pass custom data to Clarity session
         if (user) clarity("set", "userId", user);
         if (source) clarity("set", "source", source);
       };
     </script>
+
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 2rem;
+        background: #f9f9f9;
+      }
+      h1 {
+        color: #222;
+      }
+      p {
+        color: #555;
+      }
+    </style>
   </head>
   <body>
-    <h1>Welcome to Clarity Test Page</h1>
+    <h1>✅ Clarity Tracking Test Page</h1>
     <p>This page was opened from the mobile app.</p>
-    <p>Check your Clarity dashboard to confirm session tracking.</p>
+    <p>
+      Visit your Clarity Web dashboard to confirm the session is tagged with
+      <code>userId</code> and <code>source</code>.
+    </p>
   </body>
 </html>
